@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class SortingComponent {
 
+  buttonColor: string = 'blue'
+
   sorting() {
-    console.log("working");
+    this.buttonColor = "red"
   }
 
 }
