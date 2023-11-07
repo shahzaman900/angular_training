@@ -6,29 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./sorting.component.scss']
 })
 export class SortingComponent {
-
-
-  colors: string[] = ['red', 'green', 'blue'];
-  currentColorIndex: number = 0;
-  buttonColor: string = this.colors[this.currentColorIndex];
+  sorting = 'sorting works'
+  colors: string[] = ['white', 'green', 'blue'];
+  currentColor: number = 0;
+  buttonColor: string = this.colors[this.currentColor];
 
   changeButtonColor() {
-    this.currentColorIndex = (this.currentColorIndex + 1) % this.colors.length;
-    this.buttonColor = this.colors[this.currentColorIndex];
+    this.currentColor = (this.currentColor + 1) % this.colors.length;
+    this.buttonColor = this.colors[this.currentColor];
+    console.log(this.buttonColor);
+
   }
-
-  // buttonColor: string = 'white'
-  // status: number = 1
-
-  // sorting() {
-  //   // if (this.status === 1) {
-  //   //   this.buttonColor = 'blue'
-  //   // } if (this.status === 2) {
-  //   //   this.buttonColor = 'green'
-  //   // } else {
-  //   //   this.buttonColor
-  //   // }
-  //   // this.status++
-  // }
 
 }
