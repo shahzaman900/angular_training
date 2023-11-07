@@ -28,4 +28,5 @@ export class SortingComponent {
 
     this.sortChanged.emit({ "sortName": this.sortName, sortState: this.sortState });
   }
+
 }

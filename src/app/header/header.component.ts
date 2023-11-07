@@ -30,8 +30,4 @@ export class HeaderComponent {
     //   ];
 
   }
-
-  showName(event: any) {
-    console.log(event.target.innerText);
-  }
 }
