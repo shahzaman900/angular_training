@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SortStateModel } from './sorting.model';
+// interface SortModel {
+//   sortState: "NO-SORT" | "ASC" | "DESC"
+//   icon: 'swap_vert' | 'arrow_upward' | 'arrow_downward'
+// };
 
 @Component({
   selector: 'app-sorting',
@@ -6,16 +11,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./sorting.component.scss']
 })
 export class SortingComponent {
-  sorting = 'sorting works'
-  colors: string[] = ['white', 'green', 'blue'];
-  currentColor: number = 0;
-  buttonColor: string = this.colors[this.currentColor];
+  @Output() sortChanged = new EventEmitter();
+  @Input() sortName: string = "NO-NAME"
+  @Input() sortState: SortStateModel = "NO-SORT";
 
-  changeButtonColor() {
-    this.currentColor = (this.currentColor + 1) % this.colors.length;
-    this.buttonColor = this.colors[this.currentColor];
-    console.log(this.buttonColor);
+  sortModel: { [sortState: string]: string } = {
+    "NO-SORT": "swap_vert",
+    "ASC": "arrow_upward",
+    "DESC": "arrow_downward"
+  };
 
+  changeSortState() {
+    if (this.sortState == "NO-SORT") this.sortState = "ASC";
+    else if (this.sortState == "ASC") this.sortState = "DESC";
+    else if (this.sortState == "DESC") this.sortState = "NO-SORT";
+
+    this.sortChanged.emit({ "sortName": this.sortName, sortState: this.sortState });
   }
-
 }

@@ -1,0 +1,1 @@
+export type SortStateModel = "NO-SORT" | "ASC" | "DESC";

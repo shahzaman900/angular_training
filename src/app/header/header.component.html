@@ -1,0 +1,10 @@
+<div class="header">
+  <div *ngFor="let column of columnConfig">
+    {{ column.title }}
+    <app-sorting
+      [sortName]="column.name"
+      [sortState]="column.sortState"
+      (sortChanged)="onSortChanged($event)"
+    ></app-sorting>
+  </div>
+</div>
